@@ -8,7 +8,7 @@ public class TyphlosionAI : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
-    public LayerMask whatIsGround, whatIsPlayer;
+    public LayerMask groundLayer, playerLayer;
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
@@ -28,7 +28,7 @@ public class TyphlosionAI : MonoBehaviour
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
         walkPoint = new Vector3(randomX + transform.position.x, transform.position.y, randomZ + transform.position.z);
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)) {
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, groundLayer)) {
             walkPointSet = true;
         }
     }
@@ -75,8 +75,8 @@ public class TyphlosionAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
         if (!playerInSightRange && !playerInAttackRange) patrolling();
         if (playerInSightRange && !playerInAttackRange) chase();
         if (playerInSightRange && playerInAttackRange) attack();

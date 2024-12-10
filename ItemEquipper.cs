@@ -45,5 +45,11 @@ public class ItemEquipper : MonoBehaviour
             currentEquipped.transform.position = transform.position;
             equipment = WhatIsEquipped.bat;
         }
+        else if (Input.GetKeyDown("3")) {
+            if (currentEquipped != null) {
+                Destroy(currentEquipped);
+            }
+            equipment = WhatIsEquipped.nothing;
+        }
     }
 }

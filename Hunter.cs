@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +10,7 @@ public class Hunter : MonoBehaviour
     private bool isWatched;
     private bool playerInRange;
     private bool unobstructedView;
+    private float killZone = 3f;
     public NavMeshAgent agent;
     private float patrolRadius = 100f;
     [SerializeField] private Camera mainCamera;
@@ -55,6 +55,10 @@ public class Hunter : MonoBehaviour
             Physics.Raycast(transform.position, directionToPlayer, out hit, 1000f);
             if (hit.transform.GetComponent<Player>()) {
                 agent.SetDestination(transform.position);
+                if (directionToPlayer.magnitude <= killZone && Vector3.Dot(directionToPlayer.normalized, transform.position) > 0.65f) {
+                    Life playerLife = player.GetComponent<Life>();
+                    playerLife.damage(10);
+                }
             }
             else {
                 agent.SetDestination(player.position);

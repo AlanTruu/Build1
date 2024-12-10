@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
                 trafficImage.sprite = trafficSprite.Dequeue();
                 path.pleiades.traffic();
                 path.pleiades.traffic();
+                path.pleiades.traffic();
                 return;
 
                
@@ -78,7 +79,7 @@ public class Player : MonoBehaviour
         trafficString.Enqueue(" eldritch horror spotted ");
         trafficString.Enqueue(" bug invasion ");
         trafficString.Enqueue(" police chase ");
-        trafficString.Enqueue("Illegal racing in the following highways ");
+        trafficString.Enqueue(" ongoing yugioh battle ");
 
         trafficSprite.Enqueue(Resources.Load<Sprite>("Sprites/SpaceShark"));
         trafficSprite.Enqueue(Resources.Load<Sprite>("Sprites/BlackHole"));
@@ -89,6 +90,8 @@ public class Player : MonoBehaviour
         trafficSprite.Enqueue(Resources.Load<Sprite>("Sprites/eHorror"));
         trafficSprite.Enqueue(Resources.Load<Sprite>("Sprites/bug"));
         trafficSprite.Enqueue(Resources.Load<Sprite>("Sprites/police"));
+        trafficSprite.Enqueue(Resources.Load<Sprite>("Sprites/Slifer"));
+
         
         
 

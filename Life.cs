@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Life : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Life : MonoBehaviour
     private Player p;
     private CharacterController controller;
     private TyphlosionAI typhlosion;
+    private Transform enemy;
     // Start is called before the first frame update
     public void damage(int dmg) {
         health -= dmg;
@@ -24,7 +26,8 @@ public class Life : MonoBehaviour
 
     private IEnumerator die() {
         transform.Rotate(65, 0, 0);
-        typhlosion.agent.SetDestination(typhlosion.gameObject.transform.position);
+        //typhlosion.agent.SetDestination(typhlosion.gameObject.transform.position);
+        enemy.GetComponent<NavMeshAgent>().SetDestination(transform.position);
         yield return new WaitForSeconds(1.5f);
         Destroy(this.gameObject);
     }
@@ -34,6 +37,7 @@ public class Life : MonoBehaviour
         p = GetComponent<Player>();
         controller = GetComponent<CharacterController>();
         typhlosion = GetComponent<TyphlosionAI>();
+        enemy = gameObject.transform;
         health = Mathf.Clamp(health, 0, maxHealth);
         
     }

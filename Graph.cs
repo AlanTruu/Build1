@@ -121,7 +121,7 @@ public class Graph
         int edgeIndex = randomEdge.Next(0, adj.Count);
         
         Debug.Log("From node " + node + " to " + adjacencyList[node].ElementAt(edgeIndex).Item1 + " with oldweight of " + getWeight(node, adjacencyList[node].ElementAt(edgeIndex).Item1));
-        addWeight(node, adjacencyList[node].ElementAt(edgeIndex).Item1, randomWeight.Next(1, 10));
+        addWeight(node, adjacencyList[node].ElementAt(edgeIndex).Item1, randomWeight.Next(1, 20));
         
         Debug.Log("At node " + node + " to " + adjacencyList[node].ElementAt(edgeIndex));
         

@@ -58,10 +58,10 @@ public class Path : MonoBehaviour
         pleiades.addEdge(1, 2, 2.363);
         pleiades.addEdge(1, 3, 3.431);
         pleiades.addEdge(2, 3, 2.339);
-        pleiades.addEdge(2, 5, 5.611);
+        pleiades.addEdge(2, 5, 1.5);
         pleiades.addEdge(2, 6, 4.111);
-        pleiades.addEdge(3, 4, 2.363);
-        pleiades.addEdge(4, 5, 7.487);
+        pleiades.addEdge(3, 4, 2.005);
+        pleiades.addEdge(4, 5, 4.487);
         pleiades.addEdge(5, 6, 5.707);
         pleiades.addEdge(5, 7, 2.145);
         pleiades.addEdge(6, 7, 4.910);
@@ -71,8 +71,10 @@ public class Path : MonoBehaviour
         mapLocations.Add(2, new Vector3(-779.772f, 118.181f, 4.5f));
         mapLocations.Add(3, new Vector3(213f, 18f, -94f));
         mapLocations.Add(4, new Vector3(422.49f, 142f, -141f));
-        
-
+        mapLocations.Add(5, new Vector3(2109.418f, 775.1912f, -1367.811f));
+        mapLocations.Add(6, new Vector3(-638f, 146.61f, -1212.037f));
+        mapLocations.Add(7, new Vector3(341f, 385f, 694f));
+        mapLocations.Add(8, new Vector3(1038f, 564f, 26f));
     }
 
     // Update is called once per frame
